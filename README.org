@@ -1,0 +1,51 @@
+* Facts
+  A tiny racket servlet that parses wikipédia article's introductions and returns those sentences as a string array.
+  This is used as the backend for the kumara_facts project
+
+** Todo list
+*** Dev [/]
+**** TODO Make it stateless
+**** TODO Parse a url endpoint <subject> parameter
+**** TODO Make a query to wikipédia
+**** TODO Parse an incomming article
+**** TODO Return a valid JSON
+
+*** TODO [0/2]
+**** TODO Set it up with apache
+**** TODO Deploy it to linode
+
+** API
+  This API doesn't require any authentication or security mesures. A request rate limiter is advised.
+
+*** Endpoints
+**** /
+   `domain/`
+
+   #+BEGIN_SRC json
+     [
+         "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
+         "The young leaves and shoots are sometimes eaten as greens.",
+         "Ipomoea batatas is native to the tropical regions in the Americas.",
+         "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
+         "It was suggested that the origin of I.",
+         "True seeds are used for breeding only."
+     ]
+   #+END_SRC
+
+**** /<subject>
+    `domain/kumara`
+
+   #+BEGIN_SRC json
+     [
+         "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
+         "The young leaves and shoots are sometimes eaten as greens.",
+         "Ipomoea batatas is native to the tropical regions in the Americas.",
+         "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
+         "It was suggested that the origin of I.",
+         "True seeds are used for breeding only."
+     ]
+   #+END_SRC
+
+** Build
+
+** Deploy
