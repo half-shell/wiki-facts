@@ -1,70 +1,107 @@
-* Facts
-  A tiny racket servlet that parses wikipédia article's introductions and returns those sentences as a string array.
-  This is used as the backend for the kumara_facts project
+#+COLUMNS: %77ITEM %TODO
+* Description
+A tiny racket servlet that parses wikipedia article's extracts and returns those sentences as a string array.
+This is used as the backend for the kumara_facts project.
 
-** Todo list
-*** Dev [4/7]
-**** TODO Parse a url endpoint <subject> parameter
-**** TODO Enable automatic redirection for a "random facts" feature
-**** TODO Refactoring in order to have a single entry point an make it more modular
-**** DONE Parse an incoming article
-**** DONE Make it stateless
-**** DONE Make a query to wikipedia
-**** DONE Return a valid JSON
+* Todo list
+** Dev [4/7]
+*** TODO Parse a url endpoint <subject> parameter
+*** TODO Enable automatic redirection for a "random facts" feature
+*** TODO Refactoring in order to have a single entry point an make it more modular
+*** DONE Parse an incoming article
+*** DONE Make it stateless
+*** DONE Make a query to wikipedia
+*** DONE Return a valid JSON
+** Documentation
+*** TODO Generate documentation for API
 
-*** Documentation
-**** TODO Generate documentation for API
+** Deploy [0/3]
+*** TODO Set it up with apache
+*** TODO Deploy it to linode
+*** TODO Host API documentation
 
-*** Deploy [0/3]
-**** TODO Set it up with apache
-**** TODO Deploy it to linode
-**** TODO Host API documentation
+** Meta
+*** TODO Aggregate notes for article about racket servlets
 
-*** Meta
-**** TODO Aggregate notes for article about racket servlets
-**** TODO
+* API
+This API doesn't require any authentication or security mesures. A request rate limiter is advised, especially considering that the wikipedia API doesn't allow more than 200 req/sec from a same source.
 
-** API
-  This API doesn't require any authentication or security mesures. A request rate limiter is advised, especially considering that the wikipedia API doesn't allow more than 200 req/sec from a same source.
+** Endpoints
+*** /
+**** Request
+`GET domain/`
 
-*** Endpoints
-**** /
-   `domain/`
+**** Response
 
-   #+BEGIN_SRC json
-     [
-         "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
-         "The young leaves and shoots are sometimes eaten as greens.",
-         "Ipomoea batatas is native to the tropical regions in the Americas.",
-         "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
-         "It was suggested that the origin of I.",
-         "True seeds are used for breeding only."
-     ]
-   #+END_SRC
+#+BEGIN_SRC json
+    [
+        "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
+        "The young leaves and shoots are sometimes eaten as greens.",
+        "Ipomoea batatas is native to the tropical regions in the Americas.",
+        "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
+        "It was suggested that the origin of I.",
+        "True seeds are used for breeding only."
+    ]
+#+END_SRC
 
-**** /<subject>
-    `domain/kumara`
+**** Options
+| Key   | Value        | Description                               |
+|-------+--------------+-------------------------------------------|
+| split | true / false | Should the output be an array or a string |
 
-   #+BEGIN_SRC json
-     [
-         "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
-         "The young leaves and shoots are sometimes eaten as greens.",
-         "Ipomoea batatas is native to the tropical regions in the Americas.",
-         "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
-         "It was suggested that the origin of I.",
-         "True seeds are used for breeding only."
-     ]
-   #+END_SRC
 
-** Build
-   Those should be enough to do the trick:
+*** /<subject>
+**** Request
+`GET domain/kumara`
 
-   #+BEGIN_SRC bash
-     # Install dependencies
-     $ raco pkg install
+**** Response
 
-     # Run the servlet
-     $ raco run
-   #+END_SRC
+#+BEGIN_SRC json
+    [
+        "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
+        "The young leaves and shoots are sometimes eaten as greens.",
+        "Ipomoea batatas is native to the tropical regions in the Americas.",
+        "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
+        "It was suggested that the origin of I.",
+        "True seeds are used for breeding only."
+    ]
+#+END_SRC
 
-** Deploy
+**** Options
+| Key   | Value        | Description                               |
+|-------+--------------+-------------------------------------------|
+| split | true / false | Should the output be an array or a string |
+
+*** /random
+**** Request
+`GET domain/random`
+
+**** Response
+#+BEGIN_SRC json
+    [
+        "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
+        "The young leaves and shoots are sometimes eaten as greens.",
+        "Ipomoea batatas is native to the tropical regions in the Americas.",
+        "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
+        "It was suggested that the origin of I.",
+        "True seeds are used for breeding only."
+    ]
+#+END_SRC
+
+**** Options
+| Key   | Value        | Description                               |
+|-------+--------------+-------------------------------------------|
+| split | true / false | Should the output be an array or a string |
+
+* Build
+Those should be enough to do the trick:
+
+#+BEGIN_SRC bash
+    # Install dependencies
+    $ raco pkg install
+
+    # Run the servlet
+    $ raco run
+#+END_SRC
+
+* Deploy
