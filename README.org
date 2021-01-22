@@ -104,4 +104,7 @@ Those should be enough to do the trick:
     $ raco run
 #+END_SRC
 
+**NOTE**: This project needs racket >= 7.8, because it's using the
+web-server/http/json module
+
 * Deploy
