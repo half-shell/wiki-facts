@@ -1,7 +1,8 @@
 #+COLUMNS: %77ITEM %TODO
 * Description
-A tiny racket servlet that parses wikipedia article's extracts and returns those sentences as a string array.
-This is used as the backend for the kumara_facts project.
+A tiny racket servlet that parses wikipedia article's extracts and
+returns those sentences as a string array.  This is used as the
+backend for the kumara_facts project.
 
 * Todo list
 ** Dev [4/7]
@@ -24,7 +25,9 @@ This is used as the backend for the kumara_facts project.
 *** TODO Aggregate notes for article about racket servlets
 
 * API
-This API doesn't require any authentication or security mesures. A request rate limiter is advised, especially considering that the wikipedia API doesn't allow more than 200 req/sec from a same source.
+This API doesn't require any authentication or security mesures. A
+request rate limiter is advised, especially considering that the
+wikipedia API doesn't allow more than 200 req/sec from a same source.
 
 ** Endpoints
 *** /
@@ -57,14 +60,14 @@ This API doesn't require any authentication or security mesures. A request rate 
 **** Response
 
 #+BEGIN_SRC json
-    [
-        "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
-        "The young leaves and shoots are sometimes eaten as greens.",
-        "Ipomoea batatas is native to the tropical regions in the Americas.",
-        "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
-        "It was suggested that the origin of I.",
-        "True seeds are used for breeding only."
-    ]
+  [
+      "Its large, starchy, sweet-tasting, tuberous roots are a root vegetable.",
+      "The young leaves and shoots are sometimes eaten as greens.",
+      "Ipomoea batatas is native to the tropical regions in the Americas.",
+      "Of the approximately 50 genera and more than 1,000 species of Convolvulaceae, I.",
+      "It was suggested that the origin of I.",
+      "True seeds are used for breeding only."
+  ]
 #+END_SRC
 
 **** Options
