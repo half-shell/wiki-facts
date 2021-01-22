@@ -5,9 +5,9 @@ returns those sentences as a string array.  This is used as the
 backend for the kumara_facts project.
 
 * Todo list
-** Dev [4/7]
+** Dev [5/8]
 *** TODO Parse a url endpoint <subject> parameter
-*** TODO Enable automatic redirection for a "random facts" feature
+*** TODO Remove unecessary (require)s from modules
 *** DONE Enable automatic redirection for a "random facts" feature
 *** TODO Refactoring in order to have a single entry point an make it more modular
 **** TODO Module for Wikipedia interaction
@@ -16,8 +16,14 @@ backend for the kumara_facts project.
 *** DONE Make it stateless
 *** DONE Make a query to wikipedia
 *** DONE Return a valid JSON
+*** TODO Global refactoring with [[https://docs.racket-lang.org/reference/contracts.html#%28tech._contract%29][contracts]] and defining better self documenting data structures
+
 ** Documentation
-*** TODO Generate documentation for API
+*** TODO Generate static documentation for API
+*** TODO Define the root path to have a documentation return value.
+The midgame here, is to be able to build a tool to interact with the API generated from
+that output format.  The endgame is to be able to generate it from the defined
+endpoints. (Far far into the future)
 
 ** Deploy [0/3]
 *** TODO Set it up with apache
