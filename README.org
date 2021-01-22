@@ -8,7 +8,10 @@ backend for the kumara_facts project.
 ** Dev [4/7]
 *** TODO Parse a url endpoint <subject> parameter
 *** TODO Enable automatic redirection for a "random facts" feature
+*** DONE Enable automatic redirection for a "random facts" feature
 *** TODO Refactoring in order to have a single entry point an make it more modular
+**** TODO Module for Wikipedia interaction
+**** DONE Module for HTTP interaction (parsing / url)
 *** DONE Parse an incoming article
 *** DONE Make it stateless
 *** DONE Make a query to wikipedia
